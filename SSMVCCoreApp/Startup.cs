@@ -48,15 +48,14 @@ namespace SSMVCCoreApp
 
                 cfg.UseSqlServer(Configuration["ConnectionStrings:SportsStoreConnection"], sqlServerOptionsAction: sqlOption =>
                 {
-              //This is for the Resilient Entity Framework Core SQL connections (Similar to SqlAzureExecutionStrategy in MVC5)
-              sqlOption.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                    //This is for the Resilient Entity Framework Core SQL connections (Similar to SqlAzureExecutionStrategy in MVC5)
+                    sqlOption.EnableRetryOnFailure(maxRetryCount: 10, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
                 });
             });
 
-
             if (Configuration["EnableRedisCaching"] == "true")
             {
-                services.AddDistributedRedisCache((cfg) => {
+                services.AddDistributedRedisCache(cfg => {
                     cfg.Configuration = Configuration["ConnectionStrings:RedisConnection"];
                     cfg.InstanceName = "master";
                 });
