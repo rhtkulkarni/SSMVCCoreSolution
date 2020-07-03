@@ -1,3 +1,16 @@
+#
+Create a Storage Account.
+Create a SQL Server and db.
+Create an appinsight and get the instrumentation key.
+Create a KeyVault in Azure and Specify 4 secrets.
+ApplicationInsights--InstrumentationKey
+ConnectionStrings--SportsStoreConnection
+StorageAccountInformation--StorageAccountAccessKey
+StorageAccountInformation--StorageAccountName
+
+Once done, publish this application inside an app service. Go to Identity and assign System defined identity to it. Note down the object id. Also add ASPNETCORE_ENVIRONMENT config setting.
+Go to Keyvault--Access Policy
+Give Secrete management and Get/List permissions for it. and save.
 
 # SSMVCCoreApp (.Net Core 2.2.402)
 
